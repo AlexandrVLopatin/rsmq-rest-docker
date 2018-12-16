@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+
+  rsmq.rest.server:
+    build:
+      context: ./rsmq.rest.server
+      dockerfile: Dockerfile-dev
+    image: rsmq-rest-server-dev
+    env_file: ./rsmq.rest.server/.env
+    environment:
+      - REDIS_HOST=127.0.0.1
+    volumes:
+      - ./rsmq.rest.server/src:/rsmq.rest.server/src:ro
+    network_mode: "host"
+
+  rsmq.chatbase.worker:
+    build:
+      context: ./rsmq.chatbase.worker
+      dockerfile: Dockerfile-dev
+    image: rsmq-chatbase-worker-dev
+    env_file: ./rsmq.chatbase.worker/.env
+    environment:
+      - REDIS_HOST=127.0.0.1
+    volumes:
+      - ./rsmq.chatbase.worker/src:/rsmq.chatbase.worker/src:ro
+    network_mode: "host"

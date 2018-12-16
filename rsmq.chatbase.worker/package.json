@@ -20,7 +20,7 @@
     "lint": "eslint '**/*.js'",
     "start": "cd ./src && node chatbase.worker.js",
     "docker:dev:build": "docker build -f Dockerfile-dev -t rsmq-chatbase-worker-dev .",
-    "docker:dev:run": "docker run --network=host --rm --env-file=./.env -v $PWD/src:/rsmq-chatbase-worker/src:ro rsmq-chatbase-worker-dev",
+    "docker:dev:run": "docker run --network=host --rm --env-file=./.env -e REDIS_HOST=127.0.0.1 -v $PWD/src:/rsmq.chatbase.worker/src:ro rsmq-chatbase-worker-dev",
     "docker:dev:shell": "docker exec -it `docker ps |grep rsmq-chatbase-worker-dev |line 1 |awk '{ print $1 }'` sh"
   }
 }

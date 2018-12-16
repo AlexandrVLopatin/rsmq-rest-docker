@@ -20,7 +20,7 @@
     "lint": "eslint '**/*.js'",
     "start": "cd ./src && node rsmq.rest.server.js",
     "docker:dev:build": "docker build -f Dockerfile-dev -t rsmq-rest-server-dev .",
-    "docker:dev:run": "docker run --network=host --rm --env-file=./.env -e REDIS_HOST=127.0.0.1 -v $PWD/src:/rsmq-rest-server/src:ro rsmq-rest-server-dev",
+    "docker:dev:run": "docker run --network=host --rm --env-file=./.env -e REDIS_HOST=127.0.0.1 -v $PWD/src:/rsmq.rest.server/src:ro rsmq-rest-server-dev",
     "docker:dev:shell": "docker exec -it `docker ps |grep rsmq-rest-server-dev |line 1 |awk '{ print $1 }'` sh"
   }
 }
