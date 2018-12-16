@@ -1,0 +1,26 @@
+version: "2"
+
+services:
+
+  redis:
+    image: redis
+    restart: always
+
+  rsmq.rest.server:
+    build: ./rsmq.rest.server
+    image: rsmq-rest-server
+    links:
+      - "redis"
+    env_file: ./rsmq.rest.server/.env
+    ports:
+      - "8888:8888"
+    restart: always
+
+  rsmq.chatbase.worker:
+    build: ./rsmq.chatbase.worker
+    image: rsmq-chatbase-worker
+    links:
+      - "redis"
+      - "rsmq.rest.server"
+    env_file: ./rsmq.chatbase.worker/.env
+    restart: always

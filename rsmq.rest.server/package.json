@@ -1,0 +1,26 @@
+{
+  "name": "rsmq-rest-server",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=10.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "restify": "^7.3.0",
+    "restify-router": "^0.5.1",
+    "rsmq": "^0.9.3",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-plugin-node": "^5.2.1"
+  },
+  "scripts": {
+    "lint": "eslint '**/*.js'",
+    "start": "cd ./src && node rsmq.rest.server.js",
+    "docker:dev:build": "docker build -f Dockerfile-dev -t rsmq-rest-server-dev .",
+    "docker:dev:run": "docker run --network=host --rm --env-file=./.env -e REDIS_HOST=127.0.0.1 -v $PWD/src:/rsmq-rest-server/src:ro rsmq-rest-server-dev",
+    "docker:dev:shell": "docker exec -it `docker ps |grep rsmq-rest-server-dev |line 1 |awk '{ print $1 }'` sh"
+  }
+}

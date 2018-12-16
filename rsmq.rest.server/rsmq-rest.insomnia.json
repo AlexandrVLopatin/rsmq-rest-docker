@@ -1,0 +1,91 @@
+{
+  "_type": "export",
+  "__export_format": 3,
+  "__export_date": "2018-12-16T11:24:39.512Z",
+  "__export_source": "insomnia.desktop.app:v6.3.1",
+  "resources": [
+    {
+      "_id": "wrk_5e99cc1fefae4ba4b16e82485e2f643c",
+      "created": 1544959368717,
+      "description": "",
+      "modified": 1544959368717,
+      "name": "RSMQ-REST",
+      "parentId": null,
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_d248b4663bf14f6582cd55d6b2b9655d",
+      "color": null,
+      "created": 1544959368748,
+      "data": {
+        "host": "http://127.0.0.1:8888",
+        "queue_name": "myqueue"
+      },
+      "isPrivate": false,
+      "metaSortKey": 1544959368748,
+      "modified": 1544959418889,
+      "name": "New Environment",
+      "parentId": "wrk_5e99cc1fefae4ba4b16e82485e2f643c",
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_bfecd1d79fb94ce7959b8340c9a41d64",
+      "cookies": [],
+      "created": 1544959368750,
+      "modified": 1544959368750,
+      "name": "Default Jar",
+      "parentId": "wrk_5e99cc1fefae4ba4b16e82485e2f643c",
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "fld_001e424dd92f45949b76663fabca8209",
+      "created": 1544959379278,
+      "description": "",
+      "environment": {},
+      "metaSortKey": -1539297502907,
+      "modified": 1544959379288,
+      "name": "RSMQ-REST",
+      "parentId": "wrk_5e99cc1fefae4ba4b16e82485e2f643c",
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_0704efdfbd2c407fb5dc740b0e325c4f",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"user_id\": \"1\",\n\t\"platform\": \"My Platform\",\n\t\"type\": \"user\",\n\t\"intent\": \"my intent\",\n\t\"not_handled\": false,\n\t\"message\": \"my message\"\n}"
+      },
+      "created": 1544959379283,
+      "description": "",
+      "headers": [
+        {
+          "disabled": false,
+          "id": "pair_145bea3d13e442fab019d0877203fe7a",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "disabled": true,
+          "id": "pair_4c3f0539fb44448b8e2581600f09e38d",
+          "name": "Content-Type",
+          "value": "text/plain"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1544913126080,
+      "method": "POST",
+      "modified": 1544959379283,
+      "name": "post message",
+      "parameters": [],
+      "parentId": "fld_001e424dd92f45949b76663fabca8209",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingMaxTimelineDataSize": 1000,
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{host}}/messages/{{ queue_name  }}",
+      "_type": "request"
+    }
+  ]
+}

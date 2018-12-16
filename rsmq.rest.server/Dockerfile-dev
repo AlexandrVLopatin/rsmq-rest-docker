@@ -1,0 +1,14 @@
+FROM node:10.14.1-alpine
+
+EXPOSE 8888
+
+RUN yarn global add nodemon
+
+WORKDIR /rsmq-rest-server
+
+COPY package*.json yarn.lock ./
+RUN yarn install --production=true --ignore-optional
+
+WORKDIR /rsmq-rest-server/src
+
+CMD [ "nodemon", "--signal", "SIGINT", "rsmq.rest.server.js" ]
