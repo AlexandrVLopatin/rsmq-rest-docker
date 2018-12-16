@@ -3,7 +3,9 @@ version: "3"
 services:
 
   redis:
-    image: redis
+    build: ./redis
+    volumes:
+      - ./redis/rdb/:/var/redis/
     restart: always
 
   rsmq.rest.server:
