@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "docker-compose:dev:build": "docker-compose -f docker-compose-dev.yml up --build",
+    "docker-compose:dev:up": "docker-compose -f docker-compose-dev.yml up",
+    "docker-compose:build": "docker-compose -f docker-compose.yml up --build",
+    "docker-compose:up": "docker-compose -f docker-compose.yml up"
+  }
+}
