@@ -10,11 +10,11 @@ content-type: {{contentType}}
 
 {
   "user_id": "1",
-	"platform": "My Platform",
-	"type": "user",
-	"intent": "my intent",
-	"not_handled": false,
-	"message": "my message"
+  "platform": "My Platform",
+  "type": "user",
+  "intent": "my intent",
+  "not_handled": false,
+  "message": "my message"
 }
 
 ### Queues list
